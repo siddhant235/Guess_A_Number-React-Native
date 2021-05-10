@@ -1,19 +1,32 @@
-import React from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import React,{useState} from "react";
+import { Button, StyleSheet, Text, TextInput, View,TouchableWithoutFeedback,Keyboard } from "react-native";
+import Card from '../components/Card'
+import Colors from '../constants/colors'
+import Input from '../components/Input'
 const StartGameScreen = (props) => {
+  const [enteredValue,setEnteredValue]=useState('')
+  const numberInputHandler=(number)=>{
+    setEnteredValue(number.replace(/[^0-9]/g),'');
+  
+  }
   return (
+    <TouchableWithoutFeedback onPress={()=>{
+      Keyboard.dismiss();
+    }}>
     <View style={styles.screens}>
            
       <Text style={styles.title}>Start A New Game !</Text>
-      <View style={styles.inputContainer}>
+      <Card style={styles.inputContainer}>
         <Text>Select A Number</Text>
-        <TextInput />
+        <Input style={styles.input} blurOnSubmit autoCorrect={false} keyboardType="numeric" maxLength={2} onChangeText={numberInputHandler}
+        value={enteredValue}/>
         <View style={styles.buttonContainer}>
-        <Button title="Reset" onPress={() => {}} />
-          <Button title="Confirm" onPress={() => {}} />
+      <View style={styles.button}><Button title="Reset" onPress={() => {}} color={Colors.accent}/></View>
+         <View style={styles.button}><Button title="Confirm" onPress={() => {}} color={Colors.primary}/></View>
         </View>
-      </View>
+      </Card>
     </View>
+    </TouchableWithoutFeedback>
   );
 };
 const styles = StyleSheet.create({
@@ -38,16 +51,14 @@ color:'black',
     width: 300,
     maxWidth: "80%",
     alignItems: "center",
-    shadowColor:'black',
-    shadowOffset:{
-        width:0,
-        height:6
-    },
-    elevation:6,
-    shadowOpacity:0.26,
-    backgroundColor:'white',
-    borderRadius:10
-    
+   
   },
+  button:{
+    width:100
+  },
+  input:{
+    width:50,
+    textAlign:'center'
+  }
 });
 export default StartGameScreen;
