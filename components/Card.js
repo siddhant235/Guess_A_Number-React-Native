@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 6,
     },
+    padding:5,
     elevation: 8,
     shadowOpacity: 0.26,
     backgroundColor: "white",
