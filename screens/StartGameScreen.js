@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     marginVertical: 5,
+    fontFamily:'open-sans-bold'
   },
   summaryContainer:{
     marginTop:20,
