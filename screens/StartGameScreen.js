@@ -9,6 +9,8 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
+import BodyText from "../components/BodyText";
+import TitleText from "../components/TitleText";
 import Card from "../components/Card";
 import Colors from "../constants/colors";
 import Input from "../components/Input";
@@ -45,7 +47,10 @@ const StartGameScreen = (props) => {
       <Card style={styles.summaryContainer}>
         <Text>You Selected</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title="START GAME" onPress={()=>props.onStartGame(selectedNumber)} />
+        <Button
+          title="START GAME"
+          onPress={() => props.onStartGame(selectedNumber)}
+        />
       </Card>
     );
   }
@@ -56,9 +61,9 @@ const StartGameScreen = (props) => {
       }}
     >
       <View style={styles.screens}>
-        <Text style={styles.title}>Start A New Game !</Text>
+        <TitleText style={styles.title}>Start A New Game !</TitleText>
         <Card style={styles.inputContainer}>
-          <Text>Select A Number</Text>
+          <BodyText>Select A Number</BodyText>
           <Input
             style={styles.input}
             blurOnSubmit
@@ -97,14 +102,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontSize: 20,
     marginVertical: 5,
-    fontFamily:'open-sans-bold'
   },
-  summaryContainer:{
-    marginTop:20,
-    alignItems:"center",
-    padding:30
+  summaryContainer: {
+    marginTop: 20,
+    alignItems: "center",
+    padding: 30,
   },
   buttonContainer: {
     flexDirection: "row",
@@ -125,6 +128,9 @@ const styles = StyleSheet.create({
   input: {
     width: 50,
     textAlign: "center",
+  },
+  text: {
+    fontFamily: "open-sans-bold",
   },
 });
 export default StartGameScreen;
