@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet,Button,Image } from "react-native";
 import BodyText from '../components/BodyText'
+import MyButton from '../components/MyButton'
 import TitleText from '../components/BodyText'
 const GameOverScreen = (props) => {
   return (
@@ -13,7 +14,7 @@ const GameOverScreen = (props) => {
       </View>
       <BodyText>Number of rounds:{props.roundsNumber}</BodyText>
       <Text>Number was:{props.userNumber}</Text>
-      <Button title="New Game" onPress={props.newGame}/>
+      <MyButton  onPress={props.newGame}>New Game</MyButton>
     </View>
   );
 };

@@ -9,6 +9,7 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
+import MyButton from '../components/MyButton'
 import BodyText from "../components/BodyText";
 import TitleText from "../components/TitleText";
 import Card from "../components/Card";
@@ -47,10 +48,9 @@ const StartGameScreen = (props) => {
       <Card style={styles.summaryContainer}>
         <Text>You Selected</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button
-          title="START GAME"
+        <MyButton
           onPress={() => props.onStartGame(selectedNumber)}
-        />
+        >START GAME</MyButton>
       </Card>
     );
   }
