@@ -5,6 +5,7 @@ import MyButton from '../components/MyButton'
 import TitleText from '../components/BodyText'
 const GameOverScreen = (props) => {
   return (
+
     <ScrollView>
     <View style={styles.screen}>
       <TitleText>The Game is Over!</TitleText>
@@ -18,6 +19,7 @@ const GameOverScreen = (props) => {
       <MyButton  onPress={props.newGame}>New Game</MyButton>
     </View>
     </ScrollView>
+    
   );
 };
 const styles = StyleSheet.create({

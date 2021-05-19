@@ -1,10 +1,13 @@
 import React from 'react'
-import {StyleSheet,Text,View} from 'react-native'
+import {StyleSheet,Text,View,Platform} from 'react-native'
 import Colors from '../constants/colors'
 import TitleText from './TitleText'
 const Header = (props) => {
     return (
-        <View style={styles.header}>
+        <View style={{...styles.header,...Platform.select({
+            ios:styles.headerIOS,
+            android:styles.headerAndroid
+        })}}>
         <TitleText>{props.title}</TitleText>
         </View>
     )
@@ -16,7 +19,8 @@ const styles=StyleSheet.create({
         paddingTop:36,
         backgroundColor:Colors.primary,
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        borderBottomColor:Platform.OS==='ios'?1:0
     },
   
 })
